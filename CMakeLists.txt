@@ -11,8 +11,10 @@ include_directories(include)
 
 #source files
 add_executable(astar
+    src/Heuristics.cpp
+    src/MapUtils.cpp
     src/main.cpp
-    src/AstarPathPlanner.cpp
+    src/AStarPlanner.cpp
 )
 
 target_link_libraries(astar
