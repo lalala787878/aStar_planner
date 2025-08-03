@@ -1,6 +1,5 @@
 #include "AStarPlanner.hpp"
 #include "Heuristics.hpp"
-#include "MapUtils.hpp"
 
 AStarPlanner::AStarPlanner(const cv::Mat& map) : map_(map) {}
 
@@ -30,14 +29,15 @@ std::vector<std::pair<int, int>> AStarPlanner::plan(const std::pair<int, int>& s
         }
 
         for (const auto& neighbor : get_neighbors(pos, map_)) {
-            // Move cost is 1 for now, only for orthogonal moves
-            double move_cost = 1.0;
+            // Move cost is 1 or sqrt (2) depending on the movement direction
+            double move_cost = (neighbor.first != pos.first && neighbor.second != pos.second)
+                   ? std::sqrt(2.0) : 1.0;
             double cost = cost_so_far_[pos] + move_cost;
             // If the next node has not been visited or the new cost is lower
             if (!cost_so_far_.count(neighbor) || cost < cost_so_far_[neighbor]) {
                 // Update cost and priority
                 cost_so_far_[neighbor] = cost;
-                double priority = cost + manhattan_distance(neighbor, goal);
+                double priority = cost + octile_distance(neighbor, goal);
                 // Push the neighbor into the priority queue
                 node_min_queue.push({neighbor.first, neighbor.second, cost, priority});
                 came_from_[neighbor] = pos; // Update the parent of the neighbor node

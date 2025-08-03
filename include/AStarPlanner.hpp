@@ -7,6 +7,8 @@
 #include <opencv2/opencv.hpp>
 #include "AStarNode.hpp"
 #include "HashUtils.hpp"
+#include "MapUtils.hpp"
+#include "Heuristics.hpp"
 
 class AStarPlanner {
     public:
