@@ -1,0 +1,27 @@
+# === Build files ===
+build/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# === IDE/editor files ===
+.vscode/
+.idea/
+*.swp
+*.user
+*.suo
+*.ncb
+*.log
+
+# === System files ===
+.DS_Store
+Thumbs.db
+
+# === Binary files ===
+*.out
+*.o
+*.obj
+*.a
+*.so
+*.exe
