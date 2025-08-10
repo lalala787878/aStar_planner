@@ -1,6 +1,6 @@
 # A* Path Planning in C++
 
-![Ubuntu Build](https://github.com/<your-username>/<your-repo>/actions/workflows/ubuntu_build.yml/badge.svg)
+![Ubuntu Build](https://github.com/lalala787878/aStar_planner/actions/workflows/ubuntu_build.yml/badge.svg)
 
 A C++ implementation of the **A\*** pathfinding algorithm using OpenCV for image-based map processing.  
 The planner supports configurable robot radius (map inflation), and interactive start/goal selection with the mouse.
@@ -21,7 +21,6 @@ The program reads a binary map, optionally inflates obstacles based on the robot
 ## Build Instructions
 
 ```bash
-
 git clone https://github.com/lalala787878/aStar_planner.git
 
 cd aStar_planner
@@ -35,9 +34,11 @@ cmake ..
 # Build
 make
 
-# Run (example with robot radius set to 2 pixels, defult is 1 pixel.)
+# Run (with defult robot radius which is 1 pixel.)
+./astar
+
+# Run (with robot radius set to 2 pixels.)
 ./astar 2
+```
 
-
-📜 License
 MIT License – feel free to use and modify.
