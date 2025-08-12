@@ -17,8 +17,14 @@ This project implements an A* path planner that operates on a binary map image:
 The program reads a binary map, optionally inflates obstacles based on the robot radius, and computes the optimal path between a start and goal position set by user via mouse on the pop up UI.
 
 ---
+## Requirements
 
-## Build Instructions
+- **Ubuntu 22.04 / 24.04** 
+- **CMake ≥ 3.10**
+- **g++ ≥ 9** (or any compiler supporting C++17)
+- **OpenCV ≥ 4.5** (core + imgproc modules)
+
+## Building and Running
 
 ```bash
 git clone https://github.com/lalala787878/aStar_planner.git
