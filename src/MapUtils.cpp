@@ -45,11 +45,13 @@ cv::Mat inflate_obstacles(const cv::Mat& map, int radius) {
     int k = std::max(1, 2 * radius + 1);
     cv::Mat kernel = cv::getStructuringElement(cv::MORPH_ELLIPSE, {k, k});
 
+    // Add image border obstacles because robot is not a point
+   cv::rectangle(inv, {0, 0}, {inv.cols-1, inv.rows-1}, cv::Scalar(255), 1);
+    
     cv::dilate(inv, dilated, kernel);
 
     // Invert back: 0 = obstacle (inflated), 255 = free
     cv::bitwise_not(dilated, inflated);
-
     // Double ensure strict binary
     cv::threshold(inflated, inflated, 127, 255, cv::THRESH_BINARY);
     return inflated;

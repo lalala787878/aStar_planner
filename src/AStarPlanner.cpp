@@ -1,6 +1,5 @@
 #include "AStarPlanner.hpp"
 #include "Heuristics.hpp"
-
 AStarPlanner::AStarPlanner(const cv::Mat& map) : map_(map) {}
 
 std::vector<std::pair<int, int>> AStarPlanner::plan(const std::pair<int, int>& start, const std::pair<int, int>& goal) {
@@ -17,7 +16,7 @@ std::vector<std::pair<int, int>> AStarPlanner::plan(const std::pair<int, int>& s
     cost_so_far_[start] = 0.0;
 
     while (!node_min_queue.empty()) {
-        // Get the node with the lowest priority (cost_so_far + heuristic)
+        // Get the node with the lowest priority (cost_so_far + heuristic), and remove it from the queue
         AStarNode current = node_min_queue.top(); node_min_queue.pop();
         std::pair<int, int> pos = {current.x, current.y};
 
